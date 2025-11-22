@@ -30,28 +30,28 @@ header {
 
 .header-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* ALTERADO: row deixa lado a lado no PC */
     align-items: center;
-    gap: 1rem; /* Espaço entre foto e texto */
+    justify-content: center; /* Centraliza tudo */
+    gap: 2rem; /* Aumentei o espaço para não ficar grudado */
 }
 
 .minha-foto {
-    border-radius: 50%; /* Deixa a foto redonda */
-    border: 4px solid var(--cor-branco);
-}
-
-h1 {
-    font-family: 'Poppins', sans-serif;
+    width: 150px;        /* Largura fixa */
+    height: 150px;       /* Altura fixa igual à largura */
+    object-fit: cover;   /* Garante que a foto não fique achatada */
+    border-radius: 50%;  /* Faz a foto ficar redonda */
+    border: 4px solid var(--cor-branco); /* A borda branca */
 }
 
 /* === NAV (Menu) === */
 nav {
-    background-color: #005fa3; /* Um azul um pouco mais escuro */
+    background-color: #005fa3;
     padding: 1rem;
 }
 
 nav ul {
-    display: flex; /* Flexbox para colocar itens lado a lado */
+    display: flex;
     justify-content: center;
     list-style: none;
     gap: 20px;
@@ -61,17 +61,17 @@ nav a {
     color: var(--cor-branco);
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s; /* DICA EXTRA: Transição suave */
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ffd700; /* Muda cor ao passar o mouse */
+    color: #ffd700;
 }
 
 /* === MAIN e Layout Geral === */
 main {
-    max-width: 900px; /* Largura máxima do site */
-    margin: 2rem auto; /* Centraliza na tela */
+    max-width: 900px;
+    margin: 2rem auto;
     padding: 0 1rem;
 }
 
@@ -120,8 +120,16 @@ footer {
 
 /* === RESPONSIVIDADE (Celular) === */
 @media (max-width: 600px) {
+    
+    /* Regra nova para o cabeçalho no celular */
+    .header-container {
+        flex-direction: column; /* Volta a ficar um em cima do outro */
+        text-align: center;
+    }
+
+    /* Regra para o menu */
     nav ul {
-        flex-direction: column; /* Menu fica vertical no celular */
+        flex-direction: column; 
         align-items: center;
     }
 }
